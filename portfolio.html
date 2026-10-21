@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poorvika S E | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h2 {
+      color: #60a5fa;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    section {
+      padding: 65px 8%;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #0b1120, #172554);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      margin: 12px 0;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #cbd5e1;
+      margin-bottom: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .button:hover {
+      background: #2563eb;
+    }
+
+    h2.section-title {
+      color: #60a5fa;
+      margin-bottom: 22px;
+      font-size: 30px;
+    }
+
+    .about-text {
+      max-width: 850px;
+      color: #cbd5e1;
+    }
+
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #172033;
+      padding: 22px;
+      border-radius: 12px;
+      border: 1px solid #263449;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #60a5fa;
+    }
+
+    .card h3 {
+      color: #93c5fd;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #bfdbfe;
+      background: #1e3a5f;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .featured {
+      border: 1px solid #3b82f6;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .flow-step {
+      background: #172033;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 18px 10px;
+    }
+
+    .flow-step strong {
+      display: block;
+      color: #93c5fd;
+      margin-bottom: 5px;
+    }
+
+    .movie-search {
+      background: #111827;
+      padding: 24px;
+      border-radius: 12px;
+      max-width: 800px;
+    }
+
+    .search-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    input {
+      flex: 1;
+      min-width: 180px;
+      padding: 12px;
+      border-radius: 7px;
+      border: 1px solid #475569;
+      background: #0b1120;
+      color: white;
+      font-size: 15px;
+    }
+
+    #movieResults {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .movie-card {
+      padding: 16px;
+      background: #172033;
+      border-radius: 9px;
+      border: 1px solid #334155;
+    }
+
+    .movie-card h3 {
+      color: #93c5fd;
+      margin-bottom: 8px;
+    }
+
+    #searchMessage {
+      color: #cbd5e1;
+      margin-top: 12px;
+    }
+
+    .contact p {
+      margin: 8px 0;
+      color: #cbd5e1;
+    }
+
+    footer {
+      text-align: center;
+      background: #111827;
+      padding: 20px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+
+      section {
+        padding: 48px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Poorvika S E</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#movie-app">Movie App</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <p>WELCOME TO MY PORTFOLIO</p>
+    <h1>Hi, I'm <span>Poorvika S E</span></h1>
+    <h3>Information Technology Student | Web Developer</h3>
+    <p>
+      I am interested in web development, software applications,
+      and creative technology solutions. I enjoy learning new skills
+      and building projects that solve real-world problems.
+    </p>
+    <a class="button" href="#projects">Explore My Projects</a>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p class="about-text">
+      I am a B.Sc. Information Technology student passionate about
+      programming, web development, and problem-solving. I enjoy
+      developing user-friendly applications and exploring how
+      technology can improve everyday tasks. My goal is to strengthen
+      my technical skills and build useful software projects.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>HTML</h3>
+        <p>Creating structured and accessible web pages.</p>
+      </div>
+      <div class="card">
+        <h3>CSS</h3>
+        <p>Designing responsive layouts and attractive interfaces.</p>
+      </div>
+      <div class="card">
+        <h3>JavaScript</h3>
+        <p>Adding interactive features and dynamic web behaviour.</p>
+      </div>
+      <div class="card">
+        <h3>Python</h3>
+        <p>Learning programming logic and application development.</p>
+      </div>
+      <div class="card">
+        <h3>Java</h3>
+        <p>Practising object-oriented programming concepts.</p>
+      </div>
+      <div class="card">
+        <h3>Problem Solving</h3>
+        <p>Breaking problems into steps and exploring solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="projects">
+      <div class="card featured">
+        <h3>1. Movie Search App</h3>
+        <p>
+          A movie discovery application concept where users can search
+          for movie titles and view details such as release year and
+          genre. This portfolio includes a working sample-data demo.
+        </p>
+        <span class="tag">Main Project</span>
+      </div>
+
+      <div class="card">
+        <h3>2. Pay Roll Slip Generator</h3>
+        <p>
+          A proposed application to organise employee details and
+          generate salary slips based on salary components and deductions.
+        </p>
+        <span class="tag">Web Application Concept</span>
+      </div>
+
+      <div class="card">
+        <h3>3. Clinic Prescription Record</h3>
+        <p>
+          A proposed system for maintaining patient visit records,
+          prescription details, and clinic information.
+        </p>
+        <span class="tag">Record Management Concept</span>
+      </div>
+
+      <div class="card">
+        <h3>4. AI-Powered Land Wind Matching Platform</h3>
+        <p>
+          A project concept for matching land characteristics with
+          wind-energy suitability using data analysis and AI techniques.
+        </p>
+        <span class="tag">AI Project Concept</span>
+      </div>
+
+      <div class="card">
+        <h3>5. Smart College Resource Management</h3>
+        <p>
+          A proposed platform to help manage college facilities,
+          resources, availability, and requests more efficiently.
+        </p>
+        <span class="tag">Smart Campus Concept</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="movie-app">
+    <h2 class="section-title">Movie Search App</h2>
+
+    <p class="about-text">
+      Search the sample movie collection below. This demo uses local
+      sample data and does not yet connect to the live TMDB API.
+    </p>
+
+    <div class="movie-search">
+      <h3>Find a Movie</h3>
+
+      <form class="search-form" id="movieForm">
+        <input
+          type="text"
+          id="movieInput"
+          placeholder="Enter a movie title..."
+          aria-label="Movie title"
+          required
+        >
+        <button class="button" type="submit">Search</button>
+      </form>
+
+      <p id="searchMessage" aria-live="polite">
+        Try searching for Inception, Avatar, or Titanic.
+      </p>
+
+      <div id="movieResults"></div>
+    </div>
+
+    <h3 style="margin: 28px 0 16px;">How the App Works</h3>
+
+    <div class="flow">
+      <div class="flow-step">
+        <strong>Step 1</strong>
+        User Input
+      </div>
+      <div class="flow-step">
+        <strong>Step 2</strong>
+        JavaScript Search
+      </div>
+      <div class="flow-step">
+        <strong>Step 3</strong>
+        Match Movie Data
+      </div>
+      <div class="flow-step">
+        <strong>Step 4</strong>
+        Display Results
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p>
+      Interested in my work or want to connect? Feel free to contact me.
+    </p>
+    <p>Email: Add your email address here</p>
+    <p>GitHub: Add your GitHub profile link here</p>
+    <p>LinkedIn: Add your LinkedIn profile link here</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Poorvika S E | Personal Portfolio</p>
+  </footer>
+
+  <script>
+    const movies = [
+      {
+        title: "Inception",
+        year: 2010,
+        genre: "Sci-Fi / Thriller",
+        description: "A skilled thief enters people's dreams to steal secrets."
+      },
+      {
+        title: "Interstellar",
+        year: 2014,
+        genre: "Sci-Fi / Adventure",
+        description: "Explorers travel beyond Earth in search of a future for humanity."
+      },
+      {
+        title: "The Dark Knight",
+        year: 2008,
+        genre: "Action / Crime",
+        description: "A hero faces a dangerous challenge in Gotham City."
+      },
+      {
+        title: "Avatar",
+        year: 2009,
+        genre: "Sci-Fi / Adventure",
+        description: "A human becomes involved in the world of Pandora."
+      },
+      {
+        title: "Titanic",
+        year: 1997,
+        genre: "Romance / Drama",
+        description: "A fictional love story unfolds aboard a famous ocean liner."
+      }
+    ];
+
+    const movieForm = document.getElementById("movieForm");
+    const movieInput = document.getElementById("movieInput");
+    const movieResults = document.getElementById("movieResults");
+    const searchMessage = document.getElementById("searchMessage");
+
+    movieForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const query = movieInput.value.trim().toLowerCase();
+
+      movieResults.replaceChildren();
+
+      if (!query) {
+        searchMessage.textContent = "Please enter a movie title.";
+        return;
+      }
+
+      const matches = movies.filter(function(movie) {
+        return movie.title.toLowerCase().includes(query);
+      });
+
+      if (matches.length === 0) {
+        searchMessage.textContent =
+          "No matching movie found in the sample collection. Try another title.";
+        return;
+      }
+
+      searchMessage.textContent =
+        "Found " + matches.length + " matching movie(s).";
+
+      matches.forEach(function(movie) {
+        const card = document.createElement("div");
+        card.className = "movie-card";
+
+        const title = document.createElement("h3");
+        title.textContent = movie.title;
+
+        const year = document.createElement("p");
+        year.textContent = "Year: " + movie.year;
+
+        const genre = document.createElement("p");
+        genre.textContent = "Genre: " + movie.genre;
+
+        const description = document.createElement("p");
+        description.textContent = movie.description;
+
+        card.append(title, year, genre, description);
+        movieResults.appendChild(card);
+      });
+    });
+  </script>
+
+</body>
+</html>
